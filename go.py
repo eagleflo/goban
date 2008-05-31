@@ -20,13 +20,13 @@ BLACK = (0, 0, 0)
 class Stone(object):
     def __init__(self, board, point, color):
         """Create and initialize a stone.
-        
+
         Arguments:
         board -- the board which the stone resides on
         point -- location of the stone as a tuple, e.g. (3, 3)
                  represents the upper left hoshi
         color -- color of the stone
-        
+
         """
         self.board = board
         self.point = point
@@ -84,11 +84,11 @@ class Stone(object):
 class Group(object):
     def __init__(self, board, stone):
         """Create and initialize a new group.
-        
+
         Arguments:
         board -- the board which this group resides in
         stone -- the initial stone in the group
-        
+
         """
         self.board = board
         self.board.groups.append(self)
@@ -97,14 +97,14 @@ class Group(object):
 
     def merge(self, group):
         """Merge two groups.
-        
+
         This method merges the argument group with this one by adding
         all its stones into this one. After that it removes the group
         from the board.
-        
+
         Arguments:
         group -- the group to be merged with this one
-        
+
         """
         for stone in group.stones:
             stone.group = self
@@ -121,10 +121,10 @@ class Group(object):
 
     def update_liberties(self):
         """Update the group's liberties.
-        
+
         As this method will remove the entire group if no liberties can
         be found, it should only be called once per turn.
-        
+
         """
         liberties = []
         for stone in self.stones:
@@ -146,15 +146,15 @@ class Board(object):
 
     def search(self, point=None, points=[]):
         """Search the board for a stone.
-        
+
         The board is searched in a linear fashion, looking for either a
         stone in a single point (which the method will immediately
         return if found) or all stones within a group of points.
-        
+
         Arguments:
         point -- a single point (tuple) to look for
         points -- a list of points to be searched
-        
+
         """
         stones = []
         for group in self.groups:

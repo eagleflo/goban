@@ -75,7 +75,7 @@ class Board(go.Board):
         pygame.display.update()
 
 
-def main():    
+def main():
     while True:
         pygame.time.wait(250)
         for event in pygame.event.get():
