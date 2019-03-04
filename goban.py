@@ -71,15 +71,15 @@ class Board(go.Board):
             for j in range(3):
                 coords = (165 + (240 * i), 165 + (240 * j))
                 pygame.draw.circle(background, BLACK, coords, 5, 0)
-        screen.blit(background, (0,0))
+        screen.blit(background, (0, 0))
         pygame.display.update()
 
     def update_liberties(self, added_stone=None):
         """Updates the liberties of the entire board, group by group.
-        
+
         Usually a stone is added each turn. To allow killing by 'suicide',
         all the 'old' groups should be updated before the newly added one.
-        
+
         """
         for group in self.groups:
             if added_stone:
@@ -99,7 +99,7 @@ def main():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if event.button == 1 and board.outline.collidepoint(event.pos):
                     x = int(round(((event.pos[0] - 5) / 40.0), 0))
-                    y = int(round(((event.pos[1] - 5 ) / 40.0), 0))
+                    y = int(round(((event.pos[1] - 5) / 40.0), 0))
                     stone = board.search(point=(x, y))
                     if stone:
                         stone.remove()

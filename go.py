@@ -138,6 +138,7 @@ class Group(object):
         """Return a list of the group's stones as a string."""
         return str([str(stone) for stone in self.stones])
 
+
 class Board(object):
     def __init__(self):
         """Create and initialize an empty board."""
