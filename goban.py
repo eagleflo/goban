@@ -105,7 +105,7 @@ def main():
                         stone.remove()
                     else:
                         added_stone = Stone(board, (x, y), board.turn())
-        board.update_liberties(locals().get('added_stone', ''))
+                    board.update_liberties(added_stone)
 
 
 if __name__ == '__main__':
